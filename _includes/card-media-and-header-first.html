@@ -1,0 +1,29 @@
+{% assign fileParam = {{include.file}} %}
+
+{% assign dataFile = site.data[fileParam] %}
+
+<ul class="usa-card-group">
+  {% for card in dataFile %}
+  
+    <li class="tablet:grid-col-4 usa-card usa-card--header-first">
+      <div class="usa-card__container">
+        <header class="usa-card__header">
+          <h2 class="usa-card__heading">{{ card.title }}</h2>
+        </header>
+        <div class="usa-card__media">
+          <div class="usa-card__img">
+            <img src="{{ card.imgPath }}" alt="{{ card.imgAlt }}">
+          </div>
+        </div>
+        <div class="usa-card__body">
+          <p>{{ card.description }}</p>
+        </div>
+        {% if card.button %}
+        <div class="usa-card__footer">
+          <button class="usa-button">Visit Florida Keys</button>
+        </div>
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>

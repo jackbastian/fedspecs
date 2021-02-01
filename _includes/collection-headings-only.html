@@ -1,0 +1,21 @@
+{% assign collection = {{include.collection}} %}
+
+<ul class="usa-collection usa-collection--condensed">
+  {% for row in site[collection] %}
+  <li class="usa-collection__item">
+    <div class="usa-collection__body">
+      <h3 class="usa-collection__heading">
+        <a class="usa-link" href="{{row.permalink}}">{{ row.title }}</a>
+      </h3>
+      <ul class="usa-collection__meta" aria-label="More information">
+        <li class="usa-collection__meta-item position-relative">
+          <svg class="usa-icon position-relative bottom-neg-2px" aria-hidden="true" role="img">
+            <use xlink:href="/assets/img/sprite.svg#public"></use>
+          </svg>
+          {{row.description}}
+        </li>
+      </ul>
+    </div>
+  </li>
+  {% endfor %}
+</ul>

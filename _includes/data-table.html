@@ -1,0 +1,22 @@
+{% assign tableFileParam = {{include.file}} %}
+{% assign tableFile = site.data[tableFileParam] %}
+
+<table id="data-table" class="stripe">
+  {% for row in tableFile %}
+    {% if forloop.first %}
+    <thead>
+      <tr>
+        {% for pair in row %}
+          <th scope="col">{{ pair[0] }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+    {% endif %}
+
+    {% tablerow pair in row %}
+      {{ pair[1] }}
+    {% endtablerow %}
+  {% endfor %}
+</tbody>
+</table>
